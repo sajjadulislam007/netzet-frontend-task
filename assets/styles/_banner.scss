@@ -1,0 +1,10 @@
+.banner--wrapper {
+  @extend %bg-cover;
+  min-height: 74vh;
+  padding: toRem(80) 0;
+
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  position: relative;
+}

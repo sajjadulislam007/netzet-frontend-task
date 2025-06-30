@@ -1,0 +1,481 @@
+.header--wrapper {
+  display: block;
+  min-height: 75px;
+  position: relative;
+  // z-index: 99;
+
+  @include breakpoint($breakpoint--main + 0px) {
+    min-height: 114px;
+  }
+
+  &.floating--header {
+    .header {
+      background-color: transparent;
+      border-bottom: 0;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 100%;
+      z-index: 99;
+
+      &.header-sticky {
+        background-color: $color--1;
+        left: 0;
+        position: fixed;
+        top: -100%;
+        width: 100%;
+        z-index: 9999;
+
+        &.header-show {
+          top: 0;
+        }
+      }
+    }
+
+    .main--menu {
+      li {
+        a {
+          color: $color--white;
+
+          &::after {
+            background-color: $color--white;
+          }
+        }
+      }
+    }
+
+    .toggle-menu {
+      i {
+        background-color: $color--white;
+      }
+    }
+  }
+}
+
+.header {
+  background-color: $color--body-copy;
+  border-top: 5px solid $color--1;
+  padding: toRem(20) 0;
+  position: relative;
+  transition: all 0.3s ease;
+  z-index: 99;
+
+  // @include breakpoint(max-width 1080px) {
+  //     border-bottom: 1px solid $color--mid-grey;
+  // }
+
+  //   &.has-border-bottom {
+  //     border-bottom: 1px solid $color--mid-grey;
+  //   }
+
+  @include breakpoint($breakpoint--main + 0px) {
+    padding: toRem(20) 0;
+  }
+
+  @include breakpoint(1080px) {
+    padding: toRem(30) 0;
+  }
+
+  > .holder {
+    @extend %d-flex;
+    align-items: center;
+    position: static;
+  }
+
+  &__logo {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    flex: 0 0 75%;
+    max-width: 75%;
+    transform: translateY(-10px);
+
+    @include breakpoint(650px) {
+      flex: 0 0 65%;
+      max-width: 65%;
+    }
+
+    @include breakpoint(1080px) {
+      flex: 0 0 20%;
+      max-width: 20%;
+    }
+
+    h1,
+    h2 {
+      line-height: 0;
+      margin: 0;
+      transition: all 0.3s ease-in-out;
+      transition-duration: 0.7s;
+
+      a {
+        display: block;
+      }
+    }
+
+    img {
+      max-height: 40px;
+      width: 154px;
+      transition: all 0.3s ease-in-out;
+
+      @include breakpoint(650px) {
+        max-height: 49px;
+      }
+    }
+  }
+
+  &__menu {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-end;
+    flex: 0 0 25%;
+    max-width: 25%;
+
+    @include breakpoint(650px) {
+      flex: 0 0 35%;
+      max-width: 35%;
+    }
+
+    @include breakpoint(1080px) {
+      flex: 0 0 80%;
+      max-width: 80%;
+    }
+
+    .main--menu {
+      @include breakpoint(max-width 1080px) {
+        display: none;
+      }
+    }
+  }
+
+  &.header-sticky {
+    left: 0;
+    position: fixed;
+    top: -100%;
+    width: 100%;
+    z-index: 9999;
+
+    &.header-show {
+      top: 0;
+    }
+  }
+
+  &.nav-open {
+    .toggle-menu {
+      i {
+        background-color: $color--white;
+        position: relative;
+
+        &:nth-child(1) {
+          top: 9px;
+          transform: rotate(45deg);
+        }
+        &:nth-child(2) {
+          opacity: 0;
+        }
+        &:nth-child(3) {
+          top: -9px;
+          transform: rotate(-45deg);
+        }
+      }
+    }
+  }
+}
+
+.toggle-menu {
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+  display: block;
+  height: 30px;
+  outline: 0;
+  padding: 0;
+  position: relative;
+  width: 30px;
+  z-index: 999;
+  transition: all 0.5s ease-in-out;
+
+  @include breakpoint(1080px) {
+    display: none;
+  }
+
+  i {
+    background-color: white;
+    display: block;
+    height: 2px;
+    width: 100%;
+    transition: all 0.3s ease;
+
+    + i {
+      margin-top: toRem(7);
+    }
+  }
+}
+
+.main--menu {
+  @extend %naked-list;
+
+  @include breakpoint(1081px) {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  > li {
+    text-align: center;
+
+    > a {
+      color: white;
+      display: block;
+      font-family: $font--main;
+      font-size: toRem(13);
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      line-height: 130%;
+      position: relative;
+      text-decoration: none;
+      text-align: center;
+
+      @include breakpoint(max-width 1024px) {
+        color: $color--white;
+        display: inline-block;
+      }
+
+      &::after {
+        @extend %animate-line;
+        background-color: $color--1;
+        bottom: -5px;
+        height: 2px;
+      }
+
+      &:hover {
+        color: $color--1;
+
+        &::after {
+          @extend %animate-line-hover;
+        }
+      }
+    }
+
+    + li {
+      @include breakpoint(1080px) {
+        margin-left: toRem(30);
+      }
+
+      @include breakpoint(max-width 1080px) {
+        margin-top: toRem(20);
+      }
+    }
+
+    &.current-menu-item,
+    &.current-page-ancestor {
+      a {
+        &::after {
+          width: 100%;
+        }
+      }
+    }
+
+    &.open-nav {
+      > a {
+        &::after {
+          width: 100%;
+        }
+      }
+
+      .megaMenu-wrap {
+        max-height: 1000px;
+        opacity: 1;
+        visibility: visible;
+        transform: scale3d(1, 1, 1);
+
+        .megaMenu-info {
+          > * {
+            // @extend %animation--menuFadeIn;
+          }
+        }
+
+        > .holder {
+          > ul.sub-menu {
+            > li {
+              // @extend %animation--menuFadeIn;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.megaMenu-wrap {
+  background-color: $color--3;
+  max-height: 0;
+  left: 0;
+  min-height: 450px;
+  opacity: 0;
+  padding: toRem(30) 0;
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  visibility: hidden;
+  z-index: 9991;
+  transition: height 200ms, visibility 200ms, opacity 200ms,
+    transform 350ms ease-out;
+
+  transform-origin: 0 0;
+  transform: scale3d(1, 0, 0);
+
+  @include breakpoint($breakpoint--main + 0px) {
+    padding: toRem(50) 0;
+  }
+
+  .holder {
+    @extend %d-flex;
+  }
+
+  .megaMenu-info {
+    @include flex(33.33%);
+    text-align: left;
+
+    > * {
+      @for $i from 1 through 15 {
+        &:nth-child(#{$i}n) {
+          animation-delay: 0.15s + ($i * 0.05);
+        }
+      }
+    }
+
+    h3 {
+      color: #ffffff;
+      font-size: toRem(20);
+      font-weight: 500;
+      line-height: 178.5%;
+      margin: 0 0 toRem(5);
+    }
+
+    p {
+      color: white;
+      margin: 0 0 toRem(20);
+    }
+
+    .btn {
+      display: inline-flex;
+      text-decoration: none;
+    }
+  }
+}
+
+ul.sub-menu {
+  @extend %naked-list;
+  @include flex(33.33%);
+  padding-left: toRem(40);
+  position: relative;
+
+  li {
+    @for $i from 1 through 15 {
+      &:nth-child(#{$i}n) {
+        animation-delay: 0.25s + ($i * 0.05);
+      }
+    }
+
+    a {
+      border-bottom: 1px solid rgba(187, 190, 193, 0.5);
+      color: white;
+      display: block;
+      font-size: toRem(13);
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      line-height: 126.19%;
+      padding: toRem(17) 0;
+      // padding: toRem(20) 0;
+      text-decoration: none;
+      text-align: left;
+
+      &:hover {
+        color: $color--1;
+      }
+    }
+
+    &.menu-item-has-children {
+      > a {
+        // background-image: url(../images/angle-next-white.svg);
+        background-repeat: no-repeat;
+        background-position: right center;
+        background-size: auto 15px;
+
+        &:hover {
+          // background-image: url(../images/angle-next.svg);
+        }
+      }
+    }
+
+    &:first-child {
+      a {
+        border-top: 1px solid rgba(187, 190, 193, 0.5);
+      }
+    }
+
+    &.open-sub-nav {
+      ul.sub-menu {
+        display: block;
+      }
+      > a {
+        // background-image: url(../images/angle-next.svg);
+        color: $color--1;
+      }
+      .sub-menu {
+        li {
+          // @extend %animation--menuFadeIn;
+        }
+      }
+    }
+
+    &.menu-item-has-title {
+      border-bottom: 1px solid rgba(187, 190, 193, 0.5);
+      color: white;
+      font-size: toRem(11);
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      line-height: 126.19%;
+      padding-bottom: toRem(10);
+      text-align: left;
+      text-transform: uppercase;
+    }
+
+    + li {
+      &.menu-item-has-title {
+        padding-top: toRem(25);
+      }
+    }
+  }
+
+  ul.sub-menu {
+    display: none;
+    max-width: 100%;
+    left: 100%;
+    position: absolute;
+    top: 0;
+    width: 100%;
+
+    li {
+      opacity: 0;
+
+      @for $i from 1 through 15 {
+        &:nth-child(#{$i}n) {
+          animation-delay: 0.1s + ($i * 0.05);
+        }
+      }
+
+      a {
+        border-top: 0;
+      }
+
+      &:first-child {
+        a {
+          border-top: 1px solid rgba(187, 190, 193, 0.5);
+        }
+      }
+    }
+  }
+}

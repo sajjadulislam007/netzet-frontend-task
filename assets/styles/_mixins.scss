@@ -1,0 +1,39 @@
+%d-flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+%bg-cover {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+@mixin flex($width) {
+  flex: 0 0 $width;
+  max-width: $width;
+  width: 100%;
+}
+
+@mixin cont-padding {
+  padding: toRem(44) 0;
+
+  @include breakpoint($breakpoint--main + 0px) {
+    padding: toRem(80) 0;
+  }
+}
+
+%animate-line {
+  bottom: -2px;
+  content: "";
+  height: 1px;
+  right: 0;
+  position: absolute;
+  width: 0;
+  transition: all 0.3s;
+}
+
+%animate-line-hover {
+  left: 0;
+  width: 100%;
+}

@@ -1,0 +1,50 @@
+// ----- REM px function
+$baseFontSize: 16;
+@function toRem($pixels, $context: $baseFontSize) {
+  @if (unitless($pixels)) {
+    $pixels: $pixels * 1px;
+  }
+
+  @if (unitless($context)) {
+    $context: $context * 1px;
+  }
+
+  @return calc($pixels / $context) * 1rem;
+}
+
+
+
+// -- EM function
+$browser-context: 16; // Default
+@function em($pixels, $context: $browser-context) {
+  @return #{$pixels/$context}em;
+}
+
+/* ------------------------------------------- */
+/* -- Colours + Variables */
+/* ------------------------------------------- */
+
+$site-width: 1220;
+
+// Defsult space
+$space: 20px;
+
+$font--main: "Rubik", sans-serif;
+$font--alt: "PT Serif", serif;
+
+// Body copy colour
+$color--body-copy: #2a2d32;
+
+// Colours - eidt as needed
+$color--white: #ffffff;
+$color--black: #000000;
+$color--1: #f18903;
+$color--2: #fcca8d;
+$color--3: #434850;
+// $color--4: #1f1f1f;
+// $color--5: #a97d27;
+$color--light-grey: #e6e7e8;
+$color--mid-grey: #989898;
+$color--dark-grey: #87898d;
+
+$breakpoint--main: 768;
