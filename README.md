@@ -1,36 +1,22 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Frontend-dev-task-md-sajjadul-islam
 
-## Getting Started
+Its a just frontend dev task from NetZet.
 
-First, run the development server:
+# NetZet
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Screenshot
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+![Screenshot of the project](assets/project--screenshot.png)
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+[See Demo](https://netzet-frontend-task-8uptb8srm-md-sajjadul-islams-projects.vercel.app/)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Installation instruction
 
-## Learn More
+- In the project directory, first install the Dependencies by run: `npm install`
 
-To learn more about Next.js, take a look at the following resources:
+- then you please run for development server: `npm run dev`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Runs the app in the development mode.\
+- Open [http://localhost:3000/](http://localhost:3000/) to view it in the browser.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+# Thanks!
