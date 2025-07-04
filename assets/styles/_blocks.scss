@@ -1,0 +1,42 @@
+.noticeBar--wrapper {
+  background: linear-gradient(90deg, #fc004e 0%, #10cbe0 100%);
+  padding: 20px 0;
+
+  @include breakpoint($breakpoint--main + 0px) {
+    padding: 10px 0;
+  }
+
+  .noticeBar--content {
+    max-width: 882px;
+    margin: 0 auto;
+
+    &__title {
+      font-family: $font--alt;
+      font-style: normal;
+      font-weight: 700;
+      font-size: 21px;
+      line-height: 26px;
+      color: #ffffff;
+      margin: 0;
+
+      @include breakpoint(max-width $breakpoint--mainMax + 0px) {
+        font-size: toRem(14);
+        text-align: center;
+      }
+
+      span {
+        font-weight: 800;
+        color: #00e7f9;
+
+        @include breakpoint(max-width $breakpoint--mainMax + 0px) {
+          font-size: toRem(16);
+        }
+      }
+    }
+  }
+}
+
+// content--block
+.content--block {
+  @include cont-padding;
+}

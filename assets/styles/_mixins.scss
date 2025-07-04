@@ -23,17 +23,26 @@
   }
 }
 
-%animate-line {
-  bottom: -2px;
+@mixin animate-line {
+  background-color: #fc004e;
+  bottom: -5px;
   content: "";
-  height: 1px;
+  height: 2px;
   right: 0;
   position: absolute;
   width: 0;
   transition: all 0.3s;
 }
 
-%animate-line-hover {
+@mixin animate-line-hover {
   left: 0;
   width: 100%;
+}
+
+@mixin cont-padding {
+  padding: toRem(50) 0;
+
+  @include breakpoint($breakpoint--main + 0px) {
+    padding: toRem(80) 0;
+  }
 }

@@ -1,10 +1,236 @@
+@keyframes shadowPulse {
+  0% {
+    box-shadow: 2px 2px 10px $color--2;
+  }
+  50% {
+    box-shadow: 4px 4px 20px $color--2;
+  }
+  100% {
+    box-shadow: 2px 2px 10px $color--2;
+  }
+}
+
 .banner--wrapper {
   @extend %bg-cover;
   min-height: 74vh;
-  padding: toRem(80) 0;
+  padding: toRem(46) 0 toRem(40) 0;
 
   display: flex;
   flex-wrap: wrap;
   align-items: flex-end;
   position: relative;
+
+  @include breakpoint(max-width $breakpoint--mainMax + 0px) {
+    padding: toRem(10) 0 toRem(40) 0;
+  }
+
+  .bannerContent--wrap {
+    &__row {
+      display: flex;
+      flex-wrap: wrap;
+      &_info {
+        flex: 1 1 55%;
+        max-width: 55%;
+        width: 100%;
+
+        @include breakpoint(max-width 991.98px) {
+          flex: 1 1 100%;
+          max-width: 100%;
+          order: 2;
+        }
+      }
+      &_media {
+        flex: 1 1 45%;
+        max-width: 45%;
+        width: 100%;
+
+        @include breakpoint(max-width 991.98px) {
+          flex: 1 1 100%;
+          max-width: 100%;
+          order: 1;
+        }
+      }
+    }
+    .banner--content {
+      display: flex;
+      flex-direction: column;
+
+      &__title {
+        font-family: $font--main;
+        font-style: normal;
+        font-weight: 700;
+        font-size: toRem(35);
+        line-height: toRem(42);
+        color: $color--white;
+        margin: 0;
+        position: relative;
+        z-index: 2;
+
+        @include breakpoint(max-width $breakpoint--mainMax + 0px) {
+          font-weight: 800;
+          font-size: toRem(25);
+          line-height: toRem(30);
+          text-align: center;
+          order: 1;
+        }
+      }
+
+      &__subTitle {
+        font-family: $font--main;
+        font-style: normal;
+        font-weight: 700;
+        font-size: toRem(33);
+        line-height: toRem(42);
+        color: $color--2;
+        text-shadow: 0px 4px 4px $color--1;
+        margin-bottom: 16px;
+        position: relative;
+        z-index: 2;
+
+        @include breakpoint(max-width $breakpoint--mainMax + 0px) {
+          font-weight: 800;
+          font-size: toRem(25);
+          line-height: toRem(30);
+          text-align: center;
+          margin-bottom: 22px;
+          order: 2;
+        }
+      }
+
+      &__list {
+        @extend %naked-list;
+        margin-bottom: 30px;
+        position: relative;
+        z-index: 2;
+
+        @include breakpoint(max-width $breakpoint--mainMax + 0px) {
+          order: 3;
+          margin-bottom: 22px;
+        }
+
+        &_item {
+          font-family: $font--alt;
+          font-style: normal;
+          font-weight: 600;
+          font-size: toRem(16);
+          line-height: toRem(22);
+          color: $color--white;
+          background-image: url("../images/list-style-image.png");
+          background-repeat: no-repeat;
+          background-position: center left;
+          background-repeat: 100%;
+          padding-left: 32px;
+
+          + .banner--content__list_item {
+            margin-top: 13px;
+
+            @include breakpoint(max-width $breakpoint--mainMax + 0px) {
+              margin-top: 10px;
+            }
+          }
+
+          @include breakpoint(max-width $breakpoint--mainMax + 0px) {
+            font-weight: 500;
+            font-size: toRem(16);
+            line-height: toRem(22);
+          }
+        }
+      }
+
+      &__ctaBtnWrap {
+        max-width: 313px;
+        width: 100%;
+        text-align: center;
+        margin-bottom: 30px;
+        position: relative;
+        z-index: 2;
+
+        @include breakpoint(max-width $breakpoint--mainMax + 0px) {
+          max-width: 100%;
+          order: 5;
+          margin-bottom: 0px;
+        }
+
+        &_ctaBtn {
+          @extend %button;
+        }
+        &_ctaInfo {
+          font-family: $font--alt;
+          font-style: normal;
+          font-weight: 400;
+          font-size: toRem(12);
+          line-height: 16px;
+          color: $color--white;
+        }
+      }
+
+      &__buttonInstructions {
+        position: relative;
+        z-index: 2;
+
+        @include breakpoint(max-width $breakpoint--mainMax + 0px) {
+          order: 4;
+          margin-bottom: toRem(54);
+          text-align: center;
+        }
+
+        &_text {
+          font-family: $font--alt;
+          font-style: normal;
+          font-weight: 500;
+          font-size: toRem(12);
+          line-height: toRem(14);
+          color: $color--3;
+          margin-bottom: 12px;
+
+          @include breakpoint(max-width $breakpoint--mainMax + 0px) {
+            margin-bottom: 19px;
+          }
+        }
+        &_textSmall {
+          font-family: $font--alt;
+          font-style: normal;
+          font-weight: 500;
+          font-size: toRem(10);
+          line-height: toRem(12);
+          color: $color--3;
+          margin: 0;
+
+          // @include breakpoint(max-width $breakpoint--mainMax + 0px) {
+          //   margin: 0;
+          // }
+        }
+      }
+
+      &__media {
+        float: left;
+        width: 43vw;
+        max-width: 1000px;
+        position: relative;
+        left: -65px;
+        top: -75px;
+
+        @include breakpoint(max-width 991.98px) {
+          max-width: 100%;
+          width: 100%;
+          float: unset;
+          position: static;
+          left: unset;
+          top: unset;
+        }
+
+        @include breakpoint(max-width 480.98px) {
+          max-width: 310px;
+          width: 100%;
+          margin: 0 auto;
+        }
+
+        img {
+          max-width: 100%;
+          width: 100%;
+          height: auto;
+        }
+      }
+    }
+  }
 }
