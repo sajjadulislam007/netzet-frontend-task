@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import Logo from "../../assets/images/netzet-logo.png";
 
 import Banner from "../banner/Banner";
@@ -13,6 +14,7 @@ const Header = () => {
   const [lastScrollTop, setLastScrollTop] = useState(0);
   const [isNavOpen, setIsNavOpen] = useState(false);
   const [openMenuIndex, setOpenMenuIndex] = useState(null);
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -59,7 +61,7 @@ const Header = () => {
   };
 
   return (
-    <section className="header--wrapper">
+    <section className="header--wrapper floating--header">
       {/* "floating--header" (this class is for floting header) */}
       <header
         className={`header 
@@ -88,10 +90,20 @@ const Header = () => {
               }`}
             >
               <li>
-                <Link href="/about">About Us</Link>
+                <Link
+                  href="/about"
+                  className={pathname === "/about" ? "active" : ""}
+                >
+                  About Us
+                </Link>
               </li>
               <li>
-                <Link href="/contact">Contact</Link>
+                <Link
+                  href="/contact"
+                  className={pathname === "/contact" ? "active" : ""}
+                >
+                  Contact
+                </Link>
               </li>
             </ul>
           </div>
@@ -101,7 +113,7 @@ const Header = () => {
           <div className="holder">
             <div className="header__content">
               <div className="header__logo">
-                <Link href="#">
+                <Link href="/">
                   <h1 className="site--logo" title="Fame Tonic">
                     <Image src={Logo} alt="netzet-logo" />
                   </h1>
@@ -118,10 +130,20 @@ const Header = () => {
             <nav className="main--nav-wrapper">
               <ul className="main--nav">
                 <li>
-                  <Link href="#">What we do</Link>
+                  <Link
+                    href="/about"
+                    className={pathname === "/about" ? "active" : ""}
+                  >
+                    About Us
+                  </Link>
                 </li>
                 <li>
-                  <Link href="#">Blog</Link>
+                  <Link
+                    href="/contact"
+                    className={pathname === "/contact" ? "active" : ""}
+                  >
+                    Contact
+                  </Link>
                 </li>
               </ul>
             </nav>

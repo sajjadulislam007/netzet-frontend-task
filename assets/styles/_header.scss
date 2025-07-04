@@ -254,6 +254,15 @@
       text-decoration: none;
       position: relative;
 
+      &.active {
+        color: $color--1 !important;
+
+        &::after {
+          @include animate-line;
+          width: 100%;
+        }
+      }
+
       &::after {
         @include animate-line;
       }
@@ -353,6 +362,13 @@
       color: $color--4;
       text-decoration: none;
       position: relative;
+
+      &.active {
+        color: $color--1 !important;
+        &::after {
+          @include animate-line;
+        }
+      }
 
       &::after {
         @include animate-line;
