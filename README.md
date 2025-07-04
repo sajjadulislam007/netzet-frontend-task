@@ -8,7 +8,7 @@ Its a just frontend dev task from NetZet.
 
 ![Screenshot of the project](assets/images/project--screenshot.png)
 
-[See Demo](https://netzet-frontend-task-8uptb8srm-md-sajjadul-islams-projects.vercel.app/)
+[See Demo](https://netzet-frontend-task-five.vercel.app/)
 
 ## Installation instruction
 
